@@ -1,6 +1,6 @@
-/* =========================================================
+/* =====================================================
    MOBILE NAVIGATION
-========================================================= */
+===================================================== */
 
 const menuButton = document.querySelector(".menu-button");
 const navMenu = document.querySelector(".nav-menu");
@@ -15,7 +15,9 @@ if (menuButton && navMenu) {
 
         menuButton.setAttribute(
             "aria-label",
-            isOpen ? "Close navigation menu" : "Open navigation menu"
+            isOpen
+                ? "Close navigation menu"
+                : "Open navigation menu"
         );
 
         menuButton.textContent = isOpen ? "✕" : "☰";
@@ -25,11 +27,13 @@ if (menuButton && navMenu) {
 }
 
 
-/* =========================================================
-   CLOSE MOBILE MENU AFTER CLICKING A LINK
-========================================================= */
+/* =====================================================
+   CLOSE MOBILE MENU AFTER CLICK
+===================================================== */
 
-const navLinks = document.querySelectorAll(".nav-menu .nav-link, .nav-menu .header-btn");
+const navLinks = document.querySelectorAll(
+    ".nav-menu .nav-link, .nav-menu .header-btn"
+);
 
 navLinks.forEach(function (link) {
 
@@ -40,11 +44,14 @@ navLinks.forEach(function (link) {
         }
 
         if (menuButton) {
+
             menuButton.textContent = "☰";
+
             menuButton.setAttribute(
                 "aria-label",
                 "Open navigation menu"
             );
+
         }
 
     });
@@ -52,9 +59,9 @@ navLinks.forEach(function (link) {
 });
 
 
-/* =========================================================
-   CLOSE MOBILE MENU WHEN CLICKING OUTSIDE
-========================================================= */
+/* =====================================================
+   CLOSE MENU WHEN CLICKING OUTSIDE
+===================================================== */
 
 document.addEventListener("click", function (event) {
 
@@ -62,8 +69,11 @@ document.addEventListener("click", function (event) {
         return;
     }
 
-    const clickedInsideMenu = navMenu.contains(event.target);
-    const clickedMenuButton = menuButton.contains(event.target);
+    const clickedInsideMenu =
+        navMenu.contains(event.target);
+
+    const clickedMenuButton =
+        menuButton.contains(event.target);
 
     if (
         navMenu.classList.contains("show") &&
@@ -85,12 +95,17 @@ document.addEventListener("click", function (event) {
 });
 
 
-/* =========================================================
+/* =====================================================
    ACTIVE NAVIGATION LINK
-========================================================= */
+===================================================== */
 
-const sections = document.querySelectorAll("main section[id]");
-const navigationLinks = document.querySelectorAll(".nav-menu .nav-link");
+const sections = document.querySelectorAll(
+    "main section[id]"
+);
+
+const navigationLinks = document.querySelectorAll(
+    ".nav-menu .nav-link"
+);
 
 function updateActiveLink() {
 
@@ -98,14 +113,21 @@ function updateActiveLink() {
 
     sections.forEach(function (section) {
 
-        const sectionTop = section.offsetTop - 150;
-        const sectionHeight = section.offsetHeight;
+        const sectionTop =
+            section.offsetTop - 150;
+
+        const sectionHeight =
+            section.offsetHeight;
 
         if (
             window.scrollY >= sectionTop &&
-            window.scrollY < sectionTop + sectionHeight
+            window.scrollY <
+            sectionTop + sectionHeight
         ) {
-            currentSection = section.getAttribute("id");
+
+            currentSection =
+                section.getAttribute("id");
+
         }
 
     });
@@ -115,99 +137,153 @@ function updateActiveLink() {
 
         link.classList.remove("active");
 
-        const target = link.getAttribute("href");
+        const target =
+            link.getAttribute("href");
 
-        if (target === "#" + currentSection) {
+        if (
+            target === "#" + currentSection
+        ) {
+
             link.classList.add("active");
+
         }
 
     });
 
 }
 
-window.addEventListener("scroll", updateActiveLink);
+window.addEventListener(
+    "scroll",
+    updateActiveLink
+);
 
-window.addEventListener("load", updateActiveLink);
+window.addEventListener(
+    "load",
+    updateActiveLink
+);
 
 
-/* =========================================================
+/* =====================================================
    CONTACT FORM
-========================================================= */
+===================================================== */
 
-const contactForm = document.getElementById("contactForm");
-const formMessage = document.getElementById("formMessage");
+const contactForm =
+    document.getElementById("contactForm");
+
+const formMessage =
+    document.getElementById("formMessage");
+
 
 if (contactForm) {
 
-    contactForm.addEventListener("submit", function (event) {
+    contactForm.addEventListener(
+        "submit",
+        function (event) {
 
-        event.preventDefault();
-
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const phone = document.getElementById("phone").value.trim();
-        const service = document.getElementById("service").value;
-        const message = document.getElementById("message").value.trim();
+            event.preventDefault();
 
 
-        /* BASIC VALIDATION */
+            const name =
+                document
+                    .getElementById("name")
+                    .value
+                    .trim();
 
-        if (!name || !email || !message) {
+            const email =
+                document
+                    .getElementById("email")
+                    .value
+                    .trim();
 
-            if (formMessage) {
-                formMessage.textContent =
-                    "Please fill in your name, email and message.";
+            const phone =
+                document
+                    .getElementById("phone")
+                    .value
+                    .trim();
+
+            const service =
+                document
+                    .getElementById("service")
+                    .value;
+
+            const message =
+                document
+                    .getElementById("message")
+                    .value
+                    .trim();
+
+
+            if (!name || !email || !message) {
+
+                if (formMessage) {
+
+                    formMessage.textContent =
+                        "Please fill in your name, email and message.";
+
+                }
+
+                return;
+
             }
 
-            return;
+
+            const subject =
+                "New Project Enquiry - " +
+                (service || "Website Enquiry");
+
+
+            const body =
+                "Name: " +
+                name +
+                "\n" +
+
+                "Email: " +
+                email +
+                "\n" +
+
+                "Phone: " +
+                (phone || "Not provided") +
+                "\n" +
+
+                "Service: " +
+                (service || "Not selected") +
+                "\n\n" +
+
+                "Message:\n" +
+                message;
+
+
+            const mailtoLink =
+                "mailto:prakharainstitute@gmail.com" +
+                "?subject=" +
+                encodeURIComponent(subject) +
+                "&body=" +
+                encodeURIComponent(body);
+
+
+            if (formMessage) {
+
+                formMessage.textContent =
+                    "Opening your email app...";
+
+            }
+
+
+            window.location.href =
+                mailtoLink;
+
         }
-
-
-        /* CREATE EMAIL MESSAGE */
-
-        const subject =
-            "New Project Enquiry - " +
-            (service || "Website Enquiry");
-
-
-        const body =
-            "Name: " + name + "\n" +
-            "Email: " + email + "\n" +
-            "Phone: " + (phone || "Not provided") + "\n" +
-            "Service: " + (service || "Not selected") + "\n\n" +
-            "Message:\n" + message;
-
-
-        const mailtoLink =
-            "mailto:prakharainstitute@gmail.com" +
-            "?subject=" + encodeURIComponent(subject) +
-            "&body=" + encodeURIComponent(body);
-
-
-        /* OPEN EMAIL APP */
-
-        window.location.href = mailtoLink;
-
-
-        /* MESSAGE */
-
-        if (formMessage) {
-
-            formMessage.textContent =
-                "Opening your email app...";
-
-        }
-
-    });
+    );
 
 }
 
 
-/* =========================================================
+/* =====================================================
    CURRENT YEAR
-========================================================= */
+===================================================== */
 
-const footerYear = document.querySelector(".footer-bottom p");
+const footerYear =
+    document.querySelector(".footer-bottom p");
 
 if (footerYear) {
 

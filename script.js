@@ -2,26 +2,29 @@
 // MOBILE MENU
 // ===============================
 
-function toggleMenu() {
-    const navbar = document.querySelector(".navbar");
+const menuButton = document.querySelector(".menu-button");
+const navMenu = document.querySelector(".nav-menu");
 
-    navbar.classList.toggle("show");
+if (menuButton && navMenu) {
+    menuButton.addEventListener("click", function () {
+        navMenu.classList.toggle("show");
+    });
 }
 
 
 // ===============================
-// CLOSE MENU AFTER CLICKING A LINK
+// CLOSE MENU AFTER CLICKING LINK
 // ===============================
 
-const navLinks = document.querySelectorAll(".navbar .nav-link");
+const navLinks = document.querySelectorAll(".nav-menu .nav-link");
 
-navLinks.forEach(function(link) {
+navLinks.forEach(function (link) {
 
-    link.addEventListener("click", function() {
+    link.addEventListener("click", function () {
 
-        const navbar = document.querySelector(".navbar");
-
-        navbar.classList.remove("show");
+        if (navMenu) {
+            navMenu.classList.remove("show");
+        }
 
     });
 
@@ -32,17 +35,18 @@ navLinks.forEach(function(link) {
 // CLOSE MENU WHEN CLICKING OUTSIDE
 // ===============================
 
-document.addEventListener("click", function(event) {
+document.addEventListener("click", function (event) {
 
-    const navbar = document.querySelector(".navbar");
-    const menuButton = document.querySelector(".menu-button");
+    if (!navMenu || !menuButton) {
+        return;
+    }
 
     if (
-        navbar.classList.contains("show") &&
-        !navbar.contains(event.target) &&
+        navMenu.classList.contains("show") &&
+        !navMenu.contains(event.target) &&
         !menuButton.contains(event.target)
     ) {
-        navbar.classList.remove("show");
+        navMenu.classList.remove("show");
     }
 
 });

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,34 +11,55 @@
 
 <body>
 
-    <!-- ================= NAVBAR ================= -->
+    <!-- ================= HEADER ================= -->
 
-    <header class="navbar">
+    <header class="header">
 
-        <div class="nav-container">
+        <div class="container nav-container">
 
-            <!-- LOGO -->
             <a href="index.html" class="logo">
-                <img src="images/logo.png" alt="H&R Agency Logo">
+                <div class="logo-placeholder">
+                    H&R
+                </div>
             </a>
 
-            <!-- MENU -->
-            <nav class="nav-menu">
+            <nav class="navbar">
 
-                <a href="index.html" class="active">Home</a>
-                <a href="services.html">Services</a>
-                <a href="about.html">About Us</a>
-                <a href="portfolio.html">Portfolio</a>
-                <a href="blog.html">Blog</a>
-                <a href="contact.html">Contact</a>
+                <a href="index.html" class="nav-link active">
+                    Home
+                </a>
+
+                <a href="services.html" class="nav-link">
+                    Services
+                </a>
+
+                <a href="about.html" class="nav-link">
+                    About Us
+                </a>
+
+                <a href="portfolio.html" class="nav-link">
+                    Portfolio
+                </a>
+
+                <a href="blog.html" class="nav-link">
+                    Blog
+                </a>
+
+                <a href="contact.html" class="nav-link">
+                    Contact
+                </a>
+
+                <a href="contact.html" class="get-started">
+                    Get Started
+                </a>
 
             </nav>
 
-            <!-- BUTTON -->
-            <a href="contact.html" class="get-started">
-                Get Started
-                <span>→</span>
-            </a>
+            <!-- Mobile menu button -->
+
+            <button class="menu-button" onclick="toggleMenu()">
+                ☰
+            </button>
 
         </div>
 
@@ -52,55 +72,66 @@
 
         <section class="hero">
 
-            <div class="hero-content">
+            <div class="hero-overlay"></div>
 
-                <p class="hero-small">
-                    DIGITAL SOLUTIONS FOR A BRIGHTER FUTURE
-                </p>
+            <div class="container hero-content">
 
-                <h1>
-                    H&R <span>AGENCY</span>
-                </h1>
+                <div class="hero-text">
 
-                <h2>
-                    TRANSFORM YOUR BUSINESS
-                    <br>
-                    FOR THE <span>DIGITAL ERA!</span>
-                </h2>
+                    <p class="small-heading">
+                        DIGITAL SOLUTIONS FOR A BRIGHTER FUTURE
+                    </p>
 
-                <p class="hero-description">
-                    We help brands grow with creative design,
-                    powerful web solutions and smart digital strategies.
-                    Your success is our mission!
-                </p>
+                    <h1>
+                        H&R <span>AGENCY</span>
+                    </h1>
 
-                <div class="hero-buttons">
+                    <h2>
+                        TRANSFORM YOUR BUSINESS
+                        <br>
+                        FOR THE DIGITAL ERA!
+                    </h2>
 
-                    <a href="contact.html" class="primary-btn">
-                        Get Started
-                        <span>→</span>
-                    </a>
+                    <p class="hero-description">
+                        We help businesses grow with creative digital
+                        solutions, powerful branding, modern websites
+                        and effective digital marketing.
+                    </p>
 
-                    <a href="services.html" class="secondary-btn">
-                        Our Services
-                    </a>
+                    <div class="hero-buttons">
+
+                        <a href="contact.html" class="primary-btn">
+                            Get Started
+                        </a>
+
+                        <a href="services.html" class="secondary-btn">
+                            Our Services
+                        </a>
+
+                    </div>
 
                 </div>
 
-            </div>
 
-            <!-- RIGHT SIDE IMAGE -->
+                <div class="hero-side">
 
-            <div class="hero-image">
+                    <div class="hero-card">
 
-                <div class="hero-overlay"></div>
+                        <span class="card-icon">✦</span>
 
-                <div class="hero-message">
-                    <span>Your Vision</span>
-                    <br>
-                    Our Strategy
-                    <br>
-                    Digital <b>Success</b>
+                        <h3>
+                            CREATIVE
+                            <br>
+                            DIGITAL SOLUTIONS
+                        </h3>
+
+                        <p>
+                            Innovative ideas designed to
+                            take your business forward.
+                        </p>
+
+                    </div>
+
                 </div>
 
             </div>
@@ -112,31 +143,336 @@
 
         <section class="services-intro">
 
-            <p class="section-small">
-                OUR SERVICES
-            </p>
+            <div class="container">
 
-            <h2>
-                What <span>We Do</span>
-            </h2>
+                <div class="section-heading">
 
-            <p>
-                We offer a wide range of digital services to help
-                your business grow, stand out and succeed online.
-            </p>
+                    <p class="blue-label">
+                        WHAT WE DO
+                    </p>
+
+                    <h2>
+                        Everything You Need
+                        <br>
+                        To <span>Grow Online</span>
+                    </h2>
+
+                    <p>
+                        From websites and branding to digital marketing,
+                        we provide practical digital solutions for
+                        modern businesses.
+                    </p>
+
+                </div>
+
+
+                <div class="service-grid">
+
+                    <a href="services.html" class="service-card">
+
+                        <div class="service-icon">
+                            ◈
+                        </div>
+
+                        <h3>
+                            Web Development
+                        </h3>
+
+                        <p>
+                            Modern, responsive and professional
+                            websites for your business.
+                        </p>
+
+                        <span class="read-more">
+                            Read More →
+                        </span>
+
+                    </a>
+
+
+                    <a href="services.html" class="service-card">
+
+                        <div class="service-icon">
+                            ✦
+                        </div>
+
+                        <h3>
+                            Graphic Design
+                        </h3>
+
+                        <p>
+                            Creative posters, branding,
+                            social media designs and visuals.
+                        </p>
+
+                        <span class="read-more">
+                            Read More →
+                        </span>
+
+                    </a>
+
+
+                    <a href="services.html" class="service-card">
+
+                        <div class="service-icon">
+                            ▶
+                        </div>
+
+                        <h3>
+                            Video Editing
+                        </h3>
+
+                        <p>
+                            Engaging videos, reels,
+                            promotional content and more.
+                        </p>
+
+                        <span class="read-more">
+                            Read More →
+                        </span>
+
+                    </a>
+
+
+                    <a href="services.html" class="service-card">
+
+                        <div class="service-icon">
+                            ◎
+                        </div>
+
+                        <h3>
+                            Digital Marketing
+                        </h3>
+
+                        <p>
+                            Strategies to increase your
+                            online visibility and reach.
+                        </p>
+
+                        <span class="read-more">
+                            Read More →
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ABOUT PREVIEW ================= -->
+
+        <section class="about-preview">
+
+            <div class="container about-grid">
+
+                <div class="about-image">
+
+                    <div class="image-placeholder">
+                        YOUR IMAGE
+                    </div>
+
+                </div>
+
+
+                <div class="about-content">
+
+                    <p class="blue-label">
+                        ABOUT US
+                    </p>
+
+                    <h2>
+                        Your Growth,
+                        <span>Our Mission</span>
+                    </h2>
+
+                    <p>
+                        We believe every business deserves a strong
+                        digital presence. Our goal is to combine
+                        creativity, technology and strategy to create
+                        meaningful digital experiences.
+                    </p>
+
+                    <p>
+                        Whether you are starting a new business or
+                        looking to improve your existing online presence,
+                        we help turn your ideas into reality.
+                    </p>
+
+                    <a href="about.html" class="primary-btn">
+                        Know More About Us
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= STATS ================= -->
+
+        <section class="stats-section">
+
+            <div class="container stats-grid">
+
+                <div class="stat-box">
+                    <h3>50+</h3>
+                    <p>Projects</p>
+                </div>
+
+                <div class="stat-box">
+                    <h3>30+</h3>
+                    <p>Happy Clients</p>
+                </div>
+
+                <div class="stat-box">
+                    <h3>10+</h3>
+                    <p>Services</p>
+                </div>
+
+                <div class="stat-box">
+                    <h3>24/7</h3>
+                    <p>Support</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CTA ================= -->
+
+        <section class="cta-section">
+
+            <div class="container cta-content">
+
+                <p class="blue-label">
+                    LET'S WORK TOGETHER
+                </p>
+
+                <h2>
+                    Ready To Take Your
+                    <span>Business Forward?</span>
+                </h2>
+
+                <p>
+                    Let's discuss your idea and create something
+                    meaningful for your business.
+                </p>
+
+                <a href="contact.html" class="primary-btn">
+                    Start Your Project →
+                </a>
+
+            </div>
 
         </section>
 
     </main>
 
 
-    <!-- ================= FOOTER TEMPORARY ================= -->
+    <!-- ================= FOOTER ================= -->
 
-    <footer>
+    <footer class="footer">
 
-        <p>
-            © 2026 H&R Agency. All Rights Reserved.
-        </p>
+        <div class="container footer-grid">
+
+            <div class="footer-about">
+
+                <div class="footer-logo">
+                    H&R AGENCY
+                </div>
+
+                <p>
+                    Creative digital solutions designed
+                    to help businesses grow online.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About Us</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+
+            </div>
+
+
+            <div class="footer-contact">
+
+                <h3>
+                    Contact
+                </h3>
+
+                <a href="mailto:your@email.com">
+                    your@email.com
+                </a>
+
+                <a href="tel:+919999999999">
+                    +91 XXXXX XXXXX
+                </a>
+
+                <a
+                    href="https://www.google.com/maps/search/?api=1&query=South+Extension+Part+2+New+Delhi"
+                    target="_blank"
+                >
+                    South Extension Part 2,
+                    New Delhi
+                </a>
+
+            </div>
+
+
+            <div class="footer-social">
+
+                <h3>
+                    Follow Us
+                </h3>
+
+                <div class="social-icons">
+
+                    <a href="#" aria-label="Instagram">
+                        IG
+                    </a>
+
+                    <a href="#" aria-label="Facebook">
+                        FB
+                    </a>
+
+                    <a href="#" aria-label="YouTube">
+                        YT
+                    </a>
+
+                    <a href="#" aria-label="LinkedIn">
+                        IN
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 H&R Agency. All Rights Reserved.
+            </p>
+
+        </div>
 
     </footer>
 
@@ -144,5 +480,4 @@
     <script src="script.js"></script>
 
 </body>
-
 </html>

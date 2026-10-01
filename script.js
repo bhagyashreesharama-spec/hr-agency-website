@@ -1,6 +1,4 @@
-/* =====================================================
-   MOBILE NAVIGATION
-===================================================== */
+/* ================= MOBILE NAVIGATION ================= */
 
 const menuButton = document.querySelector(".menu-button");
 const navMenu = document.querySelector(".nav-menu");
@@ -13,6 +11,8 @@ if (menuButton && navMenu) {
 
         const isOpen = navMenu.classList.contains("show");
 
+        menuButton.textContent = isOpen ? "✕" : "☰";
+
         menuButton.setAttribute(
             "aria-label",
             isOpen
@@ -20,16 +20,12 @@ if (menuButton && navMenu) {
                 : "Open navigation menu"
         );
 
-        menuButton.textContent = isOpen ? "✕" : "☰";
-
     });
 
 }
 
 
-/* =====================================================
-   CLOSE MOBILE MENU AFTER CLICK
-===================================================== */
+/* ================= CLOSE MOBILE MENU ================= */
 
 const navLinks = document.querySelectorAll(
     ".nav-menu .nav-link, .nav-menu .header-btn"
@@ -59,9 +55,7 @@ navLinks.forEach(function (link) {
 });
 
 
-/* =====================================================
-   CLOSE MENU WHEN CLICKING OUTSIDE
-===================================================== */
+/* ================= CLOSE MENU OUTSIDE ================= */
 
 document.addEventListener("click", function (event) {
 
@@ -95,17 +89,17 @@ document.addEventListener("click", function (event) {
 });
 
 
-/* =====================================================
-   ACTIVE NAVIGATION LINK
-===================================================== */
+/* ================= ACTIVE NAVIGATION ================= */
 
 const sections = document.querySelectorAll(
     "main section[id]"
 );
 
-const navigationLinks = document.querySelectorAll(
-    ".nav-menu .nav-link"
-);
+const navigationLinks =
+    document.querySelectorAll(
+        ".nav-menu .nav-link"
+    );
+
 
 function updateActiveLink() {
 
@@ -114,15 +108,14 @@ function updateActiveLink() {
     sections.forEach(function (section) {
 
         const sectionTop =
-            section.offsetTop - 150;
+            section.offsetTop - 160;
 
-        const sectionHeight =
-            section.offsetHeight;
+        const sectionBottom =
+            sectionTop + section.offsetHeight;
 
         if (
             window.scrollY >= sectionTop &&
-            window.scrollY <
-            sectionTop + sectionHeight
+            window.scrollY < sectionBottom
         ) {
 
             currentSection =
@@ -152,6 +145,7 @@ function updateActiveLink() {
 
 }
 
+
 window.addEventListener(
     "scroll",
     updateActiveLink
@@ -163,9 +157,7 @@ window.addEventListener(
 );
 
 
-/* =====================================================
-   CONTACT FORM
-===================================================== */
+/* ================= CONTACT FORM ================= */
 
 const contactForm =
     document.getElementById("contactForm");
@@ -184,31 +176,26 @@ if (contactForm) {
 
 
             const name =
-                document
-                    .getElementById("name")
+                document.getElementById("name")
                     .value
                     .trim();
 
             const email =
-                document
-                    .getElementById("email")
+                document.getElementById("email")
                     .value
                     .trim();
 
             const phone =
-                document
-                    .getElementById("phone")
+                document.getElementById("phone")
                     .value
                     .trim();
 
             const service =
-                document
-                    .getElementById("service")
+                document.getElementById("service")
                     .value;
 
             const message =
-                document
-                    .getElementById("message")
+                document.getElementById("message")
                     .value
                     .trim();
 
@@ -233,28 +220,20 @@ if (contactForm) {
 
 
             const body =
-                "Name: " +
-                name +
-                "\n" +
-
-                "Email: " +
-                email +
-                "\n" +
-
+                "Name: " + name + "\n" +
+                "Email: " + email + "\n" +
                 "Phone: " +
                 (phone || "Not provided") +
                 "\n" +
-
                 "Service: " +
                 (service || "Not selected") +
                 "\n\n" +
-
                 "Message:\n" +
                 message;
 
 
             const mailtoLink =
-                "mailto:prakharainstitute@gmail.com" +
+                "mailto:hragency0777@gmail.com" +
                 "?subject=" +
                 encodeURIComponent(subject) +
                 "&body=" +
@@ -278,18 +257,19 @@ if (contactForm) {
 }
 
 
-/* =====================================================
-   CURRENT YEAR
-===================================================== */
+/* ================= FOOTER YEAR ================= */
 
 const footerYear =
-    document.querySelector(".footer-bottom p");
+    document.querySelector(
+        ".footer-bottom p"
+    );
+
 
 if (footerYear) {
 
     footerYear.innerHTML =
         "© " +
         new Date().getFullYear() +
-        " Prakhara Institute. All Rights Reserved.";
+        " H & R Agency. All Rights Reserved.";
 
 }
